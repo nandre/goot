@@ -25,6 +25,24 @@ class UrlMappings {
 			action		= { 'index' }
             view		= { 'index' }
         }
+		
+		
+		// CHROME EXTENSION URLS 
+		
+		//connect user to chrome extension
+		"/plugin/connect"{ 
+			controller  =  "pluginLogin"
+			action 		=  "connect"
+			view 		=  "autoClose"
+		}
+		
+		//add a link to user history
+		"/plugin/link/add"{
+			controller  =  "link"
+			action 		=  "add"
+		}
+		
+		
 		"/auth/$action" {
 			controller  = 'login'
 		}

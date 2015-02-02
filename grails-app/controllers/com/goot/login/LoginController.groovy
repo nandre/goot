@@ -50,7 +50,7 @@ class LoginController {
 		}
 		else {
 			log.debug "User not logged, redirect to auth page"
-			redirect action: 'auth', params: params
+			redirect action: 'auth', params : [username : params.username] 
 		}
 	}
 
@@ -58,7 +58,7 @@ class LoginController {
 	 * Show the login page.
 	 */
 	def auth = {
-
+		
 		def config = SpringSecurityUtils.securityConfig
 
 		if (springSecurityService.isLoggedIn()) {
@@ -118,6 +118,8 @@ class LoginController {
 			log.debug "Facebook user doesn't exist"
 			
 			def fbUserData = facebookGraphService.getFacebookProfile() as JSONObject
+			
+			log.info "fbUserData : " + fbUserData; 
 			
 			userRegistrationService.createFacebookUser(fbUserData)
 			

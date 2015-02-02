@@ -62,16 +62,47 @@ grails.hibernate.cache.queries = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-		grails.serverURL = "http://goot.cfapps.io/"
+		grails.serverURL = "http://localhost:8080/GooT"
     }
     production {
-        grails.logging.jul.usebridge = false
-        grails.serverURL = "http://goot.cfapps.io/"
+        grails.logging.jul.usebridge = true
+        grails.serverURL = "http://goot.outsidethecircle.eu"
     }
 }
 
 // log4j configuration
 log4j = {
+//	appenders {
+//		environments {
+//			development {
+//				console name: 'stdout', layout: pattern(conversionPattern: '%-5p %d{HH:mm:ss,SSS} %c{2} %m%n')
+//			}
+//	
+//			production {
+//				appender new org.apache.log4j.DailyRollingFileAppender(
+//						name: 'file',
+//						datePattern: "'.'yyyy-MM-dd",
+//						file: System.properties['catalina.base'] + "/logs/mylog-web.log",
+//						layout: pattern(conversionPattern: '%d [%t] %-5p %c{2} %x - %m%n')
+//				)
+//				rollingFile name: "stacktrace", maxFileSize: 1024 * 10,
+//						file: System.properties['catalina.base'] + "/logs/mylog-web-stacktrace.log"
+//			}
+//		}
+//	}
+	
+	error 'org.codehaus.groovy.grails.web.servlet', // controllers
+		  'org.codehaus.groovy.grails.web.pages', // GSP
+		  'org.codehaus.groovy.grails.web.sitemesh', // layouts
+		  'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
+		  'org.codehaus.groovy.grails.web.mapping', // URL mapping
+		  'org.codehaus.groovy.grails.commons', // core / classloading
+		  'org.codehaus.groovy.grails.plugins', // plugins
+		  'org.codehaus.groovy.grails.orm.hibernate', // hibernate integration
+		  'org.springframework',
+		  'org.hibernate',
+		  'net.sf.ehcache.hibernate'
+			
 	info "grails.app"
 	
 	debug "grails.app.controllers"

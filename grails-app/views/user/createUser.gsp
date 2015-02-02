@@ -62,6 +62,7 @@
 				$("#submit-registration-button").toggleClass("disabled", !showButton);
 	
 			});
+
 	
 	</script>
 <body>

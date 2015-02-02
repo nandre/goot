@@ -1,5 +1,7 @@
 <div id="Content" class="container">
 	<!-- Main menu in one row (e.g., controller entry points -->
+	<g:set var="layout_nomainmenu" value="${true}" />
+	
 	<g:if test="${!layout_nomainmenu}">
 	<div class="row">
 		<div class="span12">

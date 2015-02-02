@@ -2,7 +2,13 @@
 <head>
  <meta charset="utf-8">
 	 <g:if test="${isLoggedWithFacebook}">
-	 	<script type="text/javascript" src="${resource(dir:'js/login',file:'success.js')}"></script>
+	 	<g:javascript src="${resource(dir:'js/login',file:'success.js')}" />
+		<script type="text/JavaScript">
+			window.onload = function(){
+				//also send JSESSIONID to chrome extension
+				postToChromeExtension("${JSESSIONID}");
+			}
+		</script>
 	 </g:if>
 	 <g:else>
 		<script type="text/javascript" >
@@ -17,9 +23,7 @@
 					manage the anchor as parameters. It's send through server side then.
 				--%>
 				
-		        var out = loc.replace(".gsp#","?");
-
-		        alert(out);
+		        var out = loc.replace(".gsp?#","?");
 		        
 		        window.location = out
 		
