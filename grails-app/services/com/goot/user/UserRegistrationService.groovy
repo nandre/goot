@@ -4,7 +4,9 @@ import com.goot.FacebookUser
 import com.goot.User
 import com.goot.Role
 import com.goot.UserRole
+
 import org.codehaus.groovy.grails.web.json.JSONObject
+import org.junit.internal.runners.statements.FailOnTimeout;
 
 /**
  * UserRegistrationService
@@ -60,29 +62,39 @@ class UserRegistrationService {
 	
 	def createUser(String email, String firstName, String lastName,
 				   String password, String secretQuestion, String secretAnswer){ 
+		
 				   
-	
+	    log.debug "Service createUser called for email : " + email; 
+				  
+		def done = false;
 		def user = new User(username : email,
 							password : password, 
 							firstName : firstName, 
 							lastName : lastName,
+							email : email, 
 							secretQuestion : secretQuestion, 
 							secretAnswer : secretAnswer)
 		try { 
-			if(user.hasErrors()){ 
+			if(!user.validate()){ 
 				log.debug "Errors while creating user : "
 				user.errors.allErrors.each {
 					log.debug it
 				}
-			} else { 
-				user.save()
+			} else {
+				log.debug "user is correct";
+				user.save(failOnError: true, flush : true);
+					
+				def userRole = Role.findByAuthority('ROLE_USER');
+				UserRole.create(user, userRole);
+					
+				done = true;
 			}
 		} catch(Exception e){
 		    log.debug "Error while creating user : " + e.getMessage() 
-			return false;
+			return done;
 		}		   
 		
-		return true;		   
+		return done;		   
 				   
 	}
 	

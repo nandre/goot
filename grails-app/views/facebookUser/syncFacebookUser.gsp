@@ -2,7 +2,7 @@
 <head>
  <meta charset="utf-8">
 	 <g:if test="${isLoggedWithFacebook}">
-	 	<g:javascript src="${resource(dir:'js/login',file:'success.js')}" />
+	 	<script src="${resource(dir:'js/login',file:'success.js')}" ></script>
 		<script type="text/JavaScript">
 			window.onload = function(){
 				//also send JSESSIONID to chrome extension

@@ -8,7 +8,8 @@
 				$(".span3").change(function(){
 
 					showButton = true;
-					 
+
+					console.log("showButton : " + showButton);
 					$("#firstName").parents("div.control-group").toggleClass("error", ($("#firstName").val().length <= 0));
 					$("#firstName").parents("div.control-group").toggleClass("success", ($("#firstName").val().length > 0));
 				
@@ -36,16 +37,22 @@
 					$("#secretAnswer").parents("div.control-group").toggleClass("error", ($("#secretAnswer").val().length<= 0));
 					$("#secretAnswer").parents("div.control-group").toggleClass("success", ($("#secretAnswer").val().length> 0));
 
+					console.log("showButton before loop: " + showButton);
+					
 					$(":input.registration").each(function( index ) {
+						console.log("values : " + $(this).val());
 						  if($(this).val().length == 0){
 								showButton = false;
+								console.log("showButton in loop : " + showButton);
 								$("#submit-registration-button").attr('disabled', 'disabled');
 					 	   };
 						});
 
 					if(showButton){
+						console.log("showButton at the end: " + showButton);
 						$("#submit-registration-button").removeAttr('disabled');
 					}
+					console.log("showButton at the very end : " + showButton);
 					$("#submit-registration-button").toggleClass("disabled", !showButton);
 					
 				});

@@ -16,7 +16,9 @@
 		<p>
 			No matter what it looks like now, you'll be the best making it turn into something marvellous.
 		</p>
-
+		<sec:ifNotLoggedIn>
+			<g:link style="display: block; margin: auto; padding-top : 40px; width; 150px; text-align: center;" controller="user" action="createUser"><button type="button" class="btn btn-large btn-info">Create your account !</button></g:link>
+		</sec:ifNotLoggedIn>
 	</section>
 
 

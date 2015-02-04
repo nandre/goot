@@ -2,6 +2,7 @@ package com.goot
 
 import java.security.SecureRandom;
 import com.goot.data.Link;
+import com.goot.data.Comment;
 
 class User {
 
@@ -19,13 +20,15 @@ class User {
 	String lastName
 	String email
 
-	static hasMany = [links: Link]
+	static hasMany = [links: Link, comments: Comment];
 	
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
 		email blank: false, unique: true
 		salt maxSize: 64
+		links nullable : true
+		comments nullable : true
 	}
 
 	static mapping = {

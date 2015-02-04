@@ -14,6 +14,7 @@
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false
+grails.gorm.failOnError = true
 grails.mime.types = [
     all:           '*/*',
     atom:          'application/atom+xml',
@@ -58,6 +59,9 @@ grails.exceptionresolver.params.exclude = ['password']
 
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
+
+errorMessage = "error";
+successMessage = "success";
 
 environments {
     development {

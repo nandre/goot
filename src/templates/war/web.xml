@@ -70,8 +70,8 @@
     </servlet-mapping>
 
     <session-config>
-        <!-- 30 minutes -->
-        <session-timeout>30</session-timeout>
+        <!--infinite-->
+        <session-timeout>0</session-timeout>
     </session-config>
 
     <welcome-file-list>

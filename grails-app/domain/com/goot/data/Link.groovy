@@ -10,12 +10,15 @@ class Link {
 
 	String url;
 
+	static hasMany = [comments : Comment]
+	
 	/* no belongsTo relation cause we want to keep the links even if one of the owners is deleted */ 
 			
     static mapping = {
     }
     
 	static constraints = {
+		comments nullable : true
     }
 	
 	/*

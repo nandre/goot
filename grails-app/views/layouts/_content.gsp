@@ -1,4 +1,4 @@
-<div id="Content" class="container">
+<div id="Content" class="container" data-speed="30" data-type="background">
 	<!-- Main menu in one row (e.g., controller entry points -->
 	<g:set var="layout_nomainmenu" value="${true}" />
 	

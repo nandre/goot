@@ -42,6 +42,18 @@ class UrlMappings {
 			action 		=  "add"
 		}
 		
+		//add a image comment to link and user
+		"/plugin/comment/image"{
+			controller  =  "comment"
+			action 		=  "addImage"
+		}
+		
+		//add a text comment to link and user
+		"/plugin/comment/text"{
+			controller  =  "comment"
+			action 		=  "addText"
+		}
+		
 		
 		"/auth/$action" {
 			controller  = 'login'

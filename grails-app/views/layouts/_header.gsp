@@ -1,5 +1,5 @@
 <header id="Header" class="jumbotron masthead">
-	<div class="inner">
+	<div class="custom_inner" data-speed="2" data-type="background">
 		<div class="container">
 			<h1 class="title"><g:layoutTitle default="${meta(name:'app.name')}" /></h1>
 		</div>
