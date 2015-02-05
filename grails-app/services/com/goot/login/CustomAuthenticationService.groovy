@@ -41,19 +41,22 @@ class CustomAuthenticationService {
 				def user = User.findByUsername(username)
 				try {
 					
-					if(user.password != springSecurityService.encodePassword(password, user.salt)){
-						def auth = new UsernamePasswordAuthenticationToken(username, password) //seems like it doesn't check the pwd so this control is done before
+					if(user.password == springSecurityService.encodePassword(password, user.salt)){
+						// this block has to be changed to fit connexion with salt 					
+						def auth = new UsernamePasswordAuthenticationToken(username, password)
 						def authtoken = daoAuthenticationProvider.authenticate(auth)
 						SCH.context.authentication = authtoken
+						//authenticate(username);
 					}
 					
 					//if successful authentication
 					def userInstance = (User)springSecurityService.getCurrentUser()
 		
-					if(springSecurityService.isLoggedIn() == true && userInstance.username == username){
+					if(springSecurityService.isLoggedIn() && userInstance.username == username){
 						connexion = true
 					}
-				} catch(Exception e){ 
+				} catch(Exception e){
+				 	log.error "error", e
 					connexion = false
 				}
 		

@@ -122,6 +122,9 @@ grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.goot.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.goot.UserRole'
 grails.plugins.springsecurity.authority.className = 'com.goot.Role'
 
+grails.plugins.springsecurity.dao.reflectionSaltSourceProperty = 'salt'
+
+
 facebook.applicationSecret='3a9d58f3d9de363206f5c41afe72024e'
 facebook.applicationId='430736073677176'
 

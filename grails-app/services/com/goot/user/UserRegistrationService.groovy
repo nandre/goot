@@ -73,7 +73,8 @@ class UserRegistrationService {
 							lastName : lastName,
 							email : email, 
 							secretQuestion : secretQuestion, 
-							secretAnswer : secretAnswer)
+							secretAnswer : secretAnswer, 
+							enabled : true)
 		try { 
 			if(!user.validate()){ 
 				log.debug "Errors while creating user : "
@@ -82,7 +83,7 @@ class UserRegistrationService {
 				}
 			} else {
 				log.debug "user is correct";
-				user.save(failOnError: true, flush : true);
+				user.save();
 					
 				def userRole = Role.findByAuthority('ROLE_USER');
 				UserRole.create(user, userRole);

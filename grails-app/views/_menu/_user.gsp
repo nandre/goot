@@ -68,7 +68,7 @@
 		
 			<li class="divider"></li>
 			<li class="form-container">
-				<form action="login" method="post" accept-charset="UTF-8">
+				<g:form controller="login" action="standardLogin" method="post" accept-charset="UTF-8">
 					<div class="control-group">
 						<div class="controls">
 							<input class="input_cred" style="margin-bottom: 15px;" type="text" placeholder="Username" id="username" name="username">
@@ -81,8 +81,8 @@
 						</div>
 					</div>
 
-					<input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign In without Facebook">
-				</form>
+					<input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign in without Facebook">
+				</g:form>
 			</li>
 			<li class="divider"></li>
 			<li class="button-container">

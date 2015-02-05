@@ -20,6 +20,8 @@ class User {
 	String lastName
 	String email
 
+	//"links" corresponds to the link user added to his goot or commented
+	//"comments" corresponds to the commentes he created 
 	static hasMany = [links: Link, comments: Comment];
 	
 	static constraints = {

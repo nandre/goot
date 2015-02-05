@@ -138,6 +138,36 @@ class LoginController {
 		
 		
 	}
+	
+	/**
+	 * Standard connect from website
+	 * @return
+	 */
+	def standardLogin = {
+		
+		log.debug "standardLogin"
+		
+		if (springSecurityService.isLoggedIn()) {
+			redirect uri: config.successHandler.defaultTargetUrl
+			return
+		}
+		
+		def username = params.username
+		def password = params.password
+		
+		log.debug "username : " + username
+		log.debug "password : " + password.length();
+		
+		def res = customAuthenticationService.authenticate(username,password)
+		
+		log.debug "authentication res : " + res
+		
+		if(!res){
+			flash.message = g.message(code: "springSecurity.errors.login.fail") 
+		}
+				
+		redirect (action : "index")
+	}
 
 	/**
 	 * The redirect action for Ajax requests.

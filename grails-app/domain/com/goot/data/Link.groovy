@@ -9,7 +9,10 @@ import com.goot.User;
 class Link {
 
 	String url;
-
+	
+	// first person who reported the link;
+	User reporter;
+	
 	static hasMany = [comments : Comment]
 	
 	/* no belongsTo relation cause we want to keep the links even if one of the owners is deleted */ 
@@ -18,6 +21,7 @@ class Link {
     }
     
 	static constraints = {
+		reporter nullable : false
 		comments nullable : true
     }
 	
