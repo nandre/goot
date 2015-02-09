@@ -20,17 +20,20 @@ class User {
 	String lastName
 	String email
 
-	//"links" corresponds to the link user added to his goot or commented
+	//"favorites" corresponds to the link user added to his goot or commented
 	//"comments" corresponds to the commentes he created 
-	static hasMany = [links: Link, comments: Comment];
+	static hasMany = [favorites: Link,
+					comments: Comment, 
+					friends: User];
 	
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
 		email blank: false, unique: true
 		salt maxSize: 64
-		links nullable : true
+		favorites nullable : true
 		comments nullable : true
+		friends nullable : true
 	}
 
 	static mapping = {

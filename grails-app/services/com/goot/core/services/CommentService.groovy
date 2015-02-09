@@ -32,15 +32,15 @@ class CommentService {
 			link.addToComments(comment);
 			link.save();
 			
-			if(!user.links.contains(link)){
-				user.addToLinks(link)
+			if(!user.favorites.contains(link)){
+				user.addToFavorites(link)
 			}
 		} else {
 			link = new Link(url : url, reporter : user);
 			link.addToComments(comment);
 			link.save();
 			
-			user.addToLinks(link)
+			user.addToFavorites(link)
 		}
 		
 		user.save();

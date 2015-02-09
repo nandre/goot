@@ -1,5 +1,7 @@
 package com.goot.core.user
 
+import grails.plugins.springsecurity.SpringSecurityService;
+
 import org.springframework.dao.DataIntegrityViolationException
 
 import com.goot.User;
@@ -11,7 +13,9 @@ import com.goot.validation.NewAccountRegisterUserInstance
  */
 class UserController {
 	
-	def userRegistrationService
+	def userRegistrationService;
+	
+	def springSecurityService;
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -133,13 +137,27 @@ class UserController {
 		
 		 
 		log.debug "User creation done : " + userInst.email;
-		return [registrationDone : creationOK];	
-
-		
+		return [registrationDone : creationOK];		
 		
 		
 	}
 
+	
+	
+	/**
+	 * Add a friend from his mail
+	 * @return
+	 */
+	def addFriend(){
+		
+		def user = springSecurityService.getCurrentUser();
+		
+		def email = request.JSON.email
+		
+		def friend = User.findByEmailOrUsername()
+		
+		
+	}
 	
 	
 	

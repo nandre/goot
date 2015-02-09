@@ -127,68 +127,6 @@ class CommentController extends GlobalController {
         }
     }
 	
-	
-	/**
-	 * Add a comment as an image to the given url
-	 * Can also pass a comment id which will be the parent of the current comment (as a thread)
-	 * @return
-	 */
-	def addImage(){
-		
-		try {
-			def user = springSecurityService.getCurrentUser() as User;
-			
-			int type = CommentType.IMAGE.getCode(); //from CommentType enum class
-		
-			String content = request.JSON.image;
-			String url = request.JSON.tabUrl;
-			String sParentCommentId = request.JSON.parentCommentId;
-			long parentCommentId = Long.parseLong(!(sParentCommentId in [null, "null", "undefined"]) ? sParentCommentId : "0");
-			
-			log.debug "url : " + url;
-			
-			commentService.addComment(user, url, content, type, parentCommentId);
-			
-			render getSuccess();
-			
-		}catch(Exception ex){
-			log.error 'error', ex
-			render getError();
-		}
-	}
-	
-	
-	
-	
-	
-	
-	/**
-	 * Add a text comment to given url 
-	 * Can also pass a comment id which will be the parent of the current comment (as a thread)
-	 * @return
-	 */
-	def addText(){
-		
-		try {
-			def user = springSecurityService.getCurrentUser() as User;
-			
-			int type = CommentType.TEXT.getCode(); //from CommentType enum class
-		
-			String content = request.JSON.text;
-			String url = request.JSON.tabUrl;
-			String sParentCommentId = request.JSON.parentCommentId;
-			long parentCommentId = Long.parseLong(!(sParentCommentId in [null, "null", "undefined"]) ? sParentCommentId : "0");
 
-			log.debug "url : " + url;
-			
-			commentService.addComment(user, url, content, type, parentCommentId);
-			
-			render getSuccess();
-			
-		}catch(Exception ex){
-			log.error 'error', ex
-			render getError();
-		}
-	}
 	
 }

@@ -25,7 +25,7 @@ class LinkController extends GlobalController {
 		def user = springSecurityService.getCurrentUser() as User;
 		log.debug "logged user : " + user?.username;
 		
-		def links = user.links;
+		def links = user.favorites;
 		
         //params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [linkInstanceList: links, linkInstanceTotal: links.size()]
@@ -119,44 +119,19 @@ class LinkController extends GlobalController {
 	
 	
 	
-	
 	/**
-	 * Create link if doesn't exist and save it into user history 
+	 * See a link from its token <br/>
+	 * url format : share?me=token 
 	 * @return
 	 */
-	def add(){ 
-		//JSESSIONID is passed in cookie so user can be gotten from the session
-		try { 
-			def user = springSecurityService.getCurrentUser() as User;	
-			def tabUrl = request.JSON.tabUrl;
-			
-			log.debug "logged user : " + user?.username;
-			log.debug "tabUrl : " + tabUrl;
-			
-			def link = Link.findByUrl(tabUrl);
+	def redirectFromToken(){
 		
-			if(!link){
-				//link doesn't exist, create it and save user as reporter
-				link = new Link();
-				link.url = tabUrl;
-				link.reporter = user;
-				link.save();	
-			}
-			
-			// add to user link favorites
-			user.addToLinks(link);
-			
-			user.save()
-			
-			log.debug "link added : " + link.url;
-			
-			render getSuccess();
-
-		}catch(Exception ex){
-			log.error "error", ex
-			log.debug "error message : " + getError();
-			render getError();
-		}
-	
+		def token = params.me 
+		def linkInstance = Link.findByToken(token);
+		
+		redirect(url : linkInstance.url);
+		
 	}
+	
+	
 }

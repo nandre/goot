@@ -74,7 +74,7 @@ class UserRegistrationService {
 							email : email, 
 							secretQuestion : secretQuestion, 
 							secretAnswer : secretAnswer, 
-							enabled : true)
+							enabled : true) // TODO : enabling user only after he clicked the link in the mail
 		try { 
 			if(!user.validate()){ 
 				log.debug "Errors while creating user : "

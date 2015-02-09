@@ -1,6 +1,7 @@
 package com.goot.data
 
 import com.goot.User;
+import java.security.SecureRandom
 
 /**
  * Link
@@ -13,6 +14,10 @@ class Link {
 	// first person who reported the link;
 	User reporter;
 	
+	// used to send a goot link referencing a link
+	String token;
+	
+	
 	static hasMany = [comments : Comment]
 	
 	/* no belongsTo relation cause we want to keep the links even if one of the owners is deleted */ 
@@ -23,7 +28,37 @@ class Link {
 	static constraints = {
 		reporter nullable : false
 		comments nullable : true
+		token nullable : false
     }
+	
+	
+	def beforeInsert() {
+		if (!token) {
+		   token = generateLinkToken();
+		}
+	 }
+	
+	
+	def generateLinkToken(){
+		SecureRandom random = new SecureRandom();
+		def token = new BigInteger(130, random).toString(8);
+		
+		if(Link.findByToken(token)){
+			token = generateLinkToken();
+		}
+		
+		return token;
+	}
+	
+	static namedQueries = {
+		findByComment {
+			 commentId ->
+			   comments {
+				   eq 'id', commentId
+		   }
+		 }
+	   }
+	
 	
 	/*
 	 * Methods of the Domain Class

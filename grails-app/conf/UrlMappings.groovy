@@ -26,32 +26,50 @@ class UrlMappings {
             view		= { 'index' }
         }
 		
+		// see a link from its token (url format is /share?me=[token])
+		"/share" { 
+			controller = "link"
+			action = "redirectFromToken"
+		}
+		
 		
 		// CHROME EXTENSION URLS 
 		
 		//connect user to chrome extension
 		"/plugin/connect"{ 
 			controller  =  "pluginLogin"
-			action 		=  "connect"
-			view 		=  "autoClose"
+			action 		=  "ajaxConnect"
 		}
 		
 		//add a link to user history
 		"/plugin/link/add"{
-			controller  =  "link"
+			controller  =  "linkWS"
 			action 		=  "add"
 		}
 		
+		//add a link to user history
+		"/plugin/link/send"{
+			controller  =  "linkWS"
+			action 		=  "sendToFriend"
+		}
+		
+		
 		//add a image comment to link and user
 		"/plugin/comment/image"{
-			controller  =  "comment"
+			controller  =  "commentWS"
 			action 		=  "addImage"
 		}
 		
 		//add a text comment to link and user
 		"/plugin/comment/text"{
-			controller  =  "comment"
+			controller  =  "commentWS"
 			action 		=  "addText"
+		}
+		
+		//add a text comment to link and user
+		"/plugin/comment/send"{
+			controller  =  "commentWS"
+			action 		=  "sendToFriend"
 		}
 		
 		

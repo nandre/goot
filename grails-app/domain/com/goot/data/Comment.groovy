@@ -31,6 +31,8 @@ class Comment {
 		comments : nullable : true;
     }
 	
+	
+	
 	/*
 	 * Methods of the Domain Class
 	 */

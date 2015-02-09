@@ -28,7 +28,8 @@
 		        window.location = out
 		
 		    } else { 
-				alert('Your facebook authentication failed');
+				alert("Your facebook authentication failed, click ok and we'll try to connect you again.");
+				window.location = out;
 			}
 		</script>
 	 </g:else>
