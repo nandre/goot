@@ -28,7 +28,7 @@ class Link {
 	static constraints = {
 		reporter nullable : false
 		comments nullable : true
-		token nullable : false
+		token nullable : true
     }
 	
 	

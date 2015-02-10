@@ -10,7 +10,7 @@ function postToChromeExtension(JSESSIONID) {
 		console.log(params);
 		//post message to savetoken.js
 		window.postMessage({
-			type : "FROM_PAGE",
+			type : "GOOT_PAGE_TYPE",
 			accessToken : params, 
 			JSESSIONID : JSESSIONID
 		}, "*");
