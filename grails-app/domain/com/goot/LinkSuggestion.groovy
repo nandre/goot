@@ -1,42 +1,43 @@
-package com.goot.data
+package com.goot
 
-import com.goot.User;
+import com.goot.data.Comment
+import com.goot.data.Link
 
 /**
- * Comment
+ * LinkSuggestion
  * A domain class describes the data object and it's mapping to the database
  */
-class Comment {
+class LinkSuggestion {
 
-	int type //from CommentType enum class
+	/* Default (injected) attributes of GORM */
+//	Long	id
+//	Long	version
 	
-	String content;
+	Link link;
+	User sender;
+	User receiver;
+
+	// when someone sends a comment to a friend, it will be stored here as a specific comment suggestion
+	Comment commentSuggestion;
 	
-	Date creationDate;
-	//here no belongsTo a user because we want to keep the comment if user is deleted
+	/* Automatic timestamping of GORM */
+//	Date	dateCreated
+//	Date	lastUpdated
 	
 //	static belongsTo	= []	// tells GORM to cascade commands: e.g., delete this object if the "parent" is deleted.
 //	static hasOne		= []	// tells GORM to associate another domain object as an owner in a 1-1 mapping
 //	static hasMany		= []	// tells GORM to associate other domain objects for a 1-n or n-m mapping
 //	static mappedBy		= []	// specifies which property should be used in a mapping 
 	
-	//Comments can get commented too
-	static hasMany = [comments : Comment]
-	
     static mapping = {
     }
     
 	static constraints = {
-		type nullable : false;
-		content nullable : false, maxSize: 50000;
-		comments : nullable : true;
-		creationDate nullable : true;
+		link nullable : false
+		sender nullable : false
+		receiver nullable : false
+		commentSuggestion nullable : true 
     }
-	
-	def beforeInsert(){
-		creationDate = new Date();
-	}
-	
 	
 	/*
 	 * Methods of the Domain Class

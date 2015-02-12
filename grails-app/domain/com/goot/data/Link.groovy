@@ -58,7 +58,7 @@ class Link {
 		   }
 		 }
 	   }
-	
+		
 	
 	/*
 	 * Methods of the Domain Class

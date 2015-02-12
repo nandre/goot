@@ -72,10 +72,33 @@ class UrlMappings {
 			action 		=  "sendToFriend"
 		}
 		
+		"/plugin/comment/getFromUrlAndFriends"{
+			controller = "commentWS"
+			action 	   = "getFriendsCommentsFromUrl"
+		}
+		
+		"/plugin/comment/getFromUrl"{
+			controller = "commentWS"
+			action 	   = "getMyCommentsFromUrl"
+		}
+		
 		
 		"/auth/$action" {
 			controller  = 'login'
 		}
+		
+		
+		
+		"/test/data" {
+			controller = "test"
+			action = "createData"
+		}
+		
+		"/test/query" {
+			controller = "test"
+			action = "test"
+		}
+		
 		"/$controller/$action?/$id?"{
 			constraints {
 				controller(matches:/^((?!(api|mobile|web)).*)$/)
