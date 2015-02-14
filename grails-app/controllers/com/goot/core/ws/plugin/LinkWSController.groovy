@@ -65,7 +65,7 @@ class LinkWSController extends GlobalController {
 			// get link or add it to favorites if it's not already in
 			def link = linkService.addToFavorites(user, tabUrl);
 			
-			def receiver = User.findByEmailOrUsername(receiverMail);
+			def receiver = User.findByEmailOrUsername(receiverMail, receiverMail);
 			
 			def suggestion = new LinkSuggestion(sender : user, 
 								receiver : receiver, 

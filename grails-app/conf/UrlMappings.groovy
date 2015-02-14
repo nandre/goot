@@ -42,6 +42,23 @@ class UrlMappings {
 		}
 		
 		//add a link to user history
+		"/plugin/friend/add"{
+			controller  =  "userWS"
+			action 		=  "addFriend"
+		}
+		
+		"/plugin/friend/remove"{
+			controller  =  "userWS"
+			action 		=  "removeFriend"
+		}
+		
+		"/plugin/friend/getAll"{
+			controller  =  "userWS"
+			action 		=  "getFriends"
+		}
+		
+		
+		//add a link to user history
 		"/plugin/link/add"{
 			controller  =  "linkWS"
 			action 		=  "add"
@@ -52,6 +69,13 @@ class UrlMappings {
 			controller  =  "linkWS"
 			action 		=  "sendToFriend"
 		}
+		
+		//add a link to user history
+		"/plugin/link/getMyFavorites"{
+			controller  =  "linkWS"
+			action 		=  "getMyLinks"
+		}
+		
 		
 		
 		//add a image comment to link and user

@@ -144,20 +144,6 @@ class UserController {
 
 	
 	
-	/**
-	 * Add a friend from his mail
-	 * @return
-	 */
-	def addFriend(){
-		
-		def user = springSecurityService.getCurrentUser();
-		
-		def email = request.JSON.email
-		
-		def friend = User.findByEmailOrUsername()
-		
-		
-	}
 	
 	
 	

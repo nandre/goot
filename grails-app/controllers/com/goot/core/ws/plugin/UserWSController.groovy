@@ -1,5 +1,6 @@
 package com.goot.core.ws.plugin
 
+import grails.converters.JSON
 import grails.plugins.springsecurity.SpringSecurityService;
 
 import org.springframework.dao.DataIntegrityViolationException
@@ -31,7 +32,7 @@ class UserWSController extends GlobalController {
 			
 			def email = request.JSON.email
 			
-			def friend = User.findByEmailOrUsername(email);
+			def friend = User.findByEmailOrUsername(email, email);
 			
 			if(user && friend){
 				user.addToFriends(friend);	
@@ -59,7 +60,7 @@ class UserWSController extends GlobalController {
 			
 			def email = request.JSON.email
 			
-			def friend = User.findByEmailOrUsername(email);
+			def friend = User.findByEmailOrUsername(email, email);
 			
 			if(user && friend){
 				user.removeFromFriends(friend);
@@ -72,6 +73,26 @@ class UserWSController extends GlobalController {
 			log.error "error", e
 			
 			render getError();
+		
+		}
+	}
+	
+	/**
+	 * Get connected user's friends
+	 */
+	def getFriends(){ 
+		try { 
+			def user = springSecurityService.getCurrentUser() as User;
+			
+			def friends = user.friends;
+			
+			render ([status : getSuccess(), content : [friends : friends]] as JSON);
+			return;
+		} catch(Exception e){
+			log.error "error", e
+			
+			render ([status : getError()] as JSON);
+			return;
 		
 		}
 	}

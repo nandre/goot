@@ -99,7 +99,7 @@ class CommentWSController extends GlobalController {
 			// get link or add it to favorites if it's not already in
 			def comment = Comment.get(commentId);
 			
-			def receiver = User.findByEmailOrUsername(receiverMail);			
+			def receiver = User.findByEmailOrUsername(receiverMail, receiverMail);			
 			
 			def suggestion = new LinkSuggestion(sender : user,
 								receiver : receiver,
@@ -148,10 +148,12 @@ class CommentWSController extends GlobalController {
 				}catch(e){}
 			}
 			
+			log.info "return from getMyCommentsFromUrl : " + ([status : getSuccess(), content : [comments : comments]] as JSON)
+			
 			render ([status : getSuccess(), content : [comments : comments]] as JSON);
 			return;
 		}catch(Exception e){
-			
+			log.error "error", e
 			render ([status : getError()] as JSON);
 			return;
 		
@@ -183,10 +185,14 @@ class CommentWSController extends GlobalController {
 								[linkCommentIds: linkCommentIds, userCommentIds: userCommentIds]));
 				}catch(e){}
 			
+			log.info "return from getMyCommentsFromUrl : " + ([status : getSuccess(), content : [comments : comments]] as JSON)
+				
 			render ([status : getSuccess(), content : [comments : comments]] as JSON);
 			return;
 		}catch(Exception e){
 			
+			log.error "error", e
+		
 			render ([status : getError()] as JSON);
 			return;
 		

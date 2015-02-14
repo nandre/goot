@@ -17,6 +17,7 @@ class Link {
 	// used to send a goot link referencing a link
 	String token;
 	
+	Date creationDate;
 	
 	static hasMany = [comments : Comment]
 	
@@ -29,6 +30,7 @@ class Link {
 		reporter nullable : false
 		comments nullable : true
 		token nullable : true
+		creationDate nullable : true
     }
 	
 	
@@ -36,6 +38,7 @@ class Link {
 		if (!token) {
 		   token = generateLinkToken();
 		}
+		creationDate = new Date();
 	 }
 	
 	

@@ -123,6 +123,10 @@ class LoginController {
 			
 			userRegistrationService.createFacebookUser(fbUserData)
 			
+			user = User.findByEmail(fbUserData.email);
+			
+			customAuthenticationService.authenticate(user?.username);
+			
 			params.newFacebookUser = true;
 	
 			redirect(action : "index", params : params)
