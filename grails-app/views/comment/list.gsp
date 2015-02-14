@@ -1,6 +1,6 @@
 
-<%@ page import="com.goot.data.Comment" %>
-<%@ page import="com.goot.utils.CommentType" %>
+<%@ page import="com.gliiim.data.Comment" %>
+<%@ page import="com.gliiim.utils.CommentType" %>
 <!doctype html>
 <html>
 <head>

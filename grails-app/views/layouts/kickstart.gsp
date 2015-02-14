@@ -24,6 +24,8 @@
 	<!-- Manual includes -->
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'custom.css')}" type="text/css">
 	
+	<link href='http://fonts.googleapis.com/css?family=Advent+Pro' rel='stylesheet' type='text/css'>		
+	
 	<r:layoutResources />
 	<g:layoutHead />
 

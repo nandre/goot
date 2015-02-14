@@ -131,15 +131,15 @@
 							<input type="text" class="span3 registration ${hasErrors(bean:userInst, field:'secretAnswer', 'error')}" name="secretAnswer" id="secretAnswer" placeholder="${message(code: 'security.answer.label', default: 'Secret answer')}">
 						</div>
 					</div>
-					<div class="control-group">
-						<div class="controls">
+					<%--<div class="control-group">
+						<div class="controls">--%>
 							<label class="checkbox" for="agreement">
 								<%--<input type="checkbox" value="" name="agreement" id="agreement" >--%>
-								${message(code: 'security.agreement.label', default: 'By registering, I confirm I have read and agree with the Terms of Use.')}
+								${message(code: 'security.agreement.label', default: 'By registering, I confirm I have read and agree with the Terms of Use.')}<%--
 							</label>
 						</div>
 					</div>
-				</div>
+				--%></div>
 				<div>
 					<button type="submit" id="submit-registration-button" class="btn btn-primary"><g:message code="security.register.label"/></button>
 				</div>

@@ -1,5 +1,5 @@
 
-<%@ page import="com.goot.data.Link" %>
+<%@ page import="com.gliiim.data.Link" %>
 <!doctype html>
 <html>
 <head>

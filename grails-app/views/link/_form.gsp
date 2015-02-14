@@ -1,11 +1,11 @@
-<%@ page import="com.goot.data.Link" %>
+<%@ page import="com.gliiim.data.Link" %>
 
 
 
 			<div class="control-group fieldcontain ${hasErrors(bean: linkInstance, field: 'reporter', 'error')} required">
 				<label for="reporter" class="control-label"><g:message code="link.reporter.label" default="Reporter" /><span class="required-indicator">*</span></label>
 				<div class="controls">
-					<g:select id="reporter" name="reporter.id" from="${com.goot.User.list()}" optionKey="id" required="" value="${linkInstance?.reporter?.id}" class="many-to-one"/>
+					<g:select id="reporter" name="reporter.id" from="${com.gliiim.User.list()}" optionKey="id" required="" value="${linkInstance?.reporter?.id}" class="many-to-one"/>
 					<span class="help-inline">${hasErrors(bean: linkInstance, field: 'reporter', 'error')}</span>
 				</div>
 			</div>
@@ -13,7 +13,7 @@
 			<div class="control-group fieldcontain ${hasErrors(bean: linkInstance, field: 'comments', 'error')} ">
 				<label for="comments" class="control-label"><g:message code="link.comments.label" default="Comments" /></label>
 				<div class="controls">
-					<g:select name="comments" from="${com.goot.data.Comment.list()}" multiple="multiple" optionKey="id" size="5" value="${linkInstance?.comments*.id}" class="many-to-many"/>
+					<g:select name="comments" from="${com.gliiim.data.Comment.list()}" multiple="multiple" optionKey="id" size="5" value="${linkInstance?.comments*.id}" class="many-to-many"/>
 					<span class="help-inline">${hasErrors(bean: linkInstance, field: 'comments', 'error')}</span>
 				</div>
 			</div>

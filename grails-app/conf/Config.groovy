@@ -66,11 +66,11 @@ successMessage = "success";
 environments {
     development {
         grails.logging.jul.usebridge = true
-		grails.serverURL = "http://localhost:8080/GooT"
+		grails.serverURL = "http://localhost:8080/Gliiim"
     }
     production {
         grails.logging.jul.usebridge = true
-        grails.serverURL = "http://goot.outsidethecircle.eu"
+        grails.serverURL = "http://gliiim.outsidethecircle.eu"
     }
 }
 
@@ -118,9 +118,9 @@ log4j = {
 
 
 // Added by the Spring Security Core plugin:
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.goot.User'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.goot.UserRole'
-grails.plugins.springsecurity.authority.className = 'com.goot.Role'
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.gliiim.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.gliiim.UserRole'
+grails.plugins.springsecurity.authority.className = 'com.gliiim.Role'
 
 grails.plugins.springsecurity.dao.reflectionSaltSourceProperty = 'salt'
 
@@ -128,7 +128,7 @@ grails.plugins.springsecurity.dao.reflectionSaltSourceProperty = 'salt'
 facebook.applicationSecret='3a9d58f3d9de363206f5c41afe72024e'
 facebook.applicationId='430736073677176'
 
-//grails.plugins.springsecurity.facebook.domain.classname='com.goot.FacebookUser'
+//grails.plugins.springsecurity.facebook.domain.classname='com.gliiim.FacebookUser'
 //grails.plugins.springsecurity.facebook.appId='430736073677176'
 //grails.plugins.springsecurity.facebook.secret='3a9d58f3d9de363206f5c41afe72024e'
 

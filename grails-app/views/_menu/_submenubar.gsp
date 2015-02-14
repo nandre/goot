@@ -6,6 +6,7 @@ This menu is used to show function that can be triggered on the content (an obje
 <g:if test="${	params.controller != null
 			&&	params.controller != ''
 			&&	params.controller != 'home'
+			&&  params.controller != 'user'
 }">
 	<ul id="Menu" class="nav nav-pills">
 

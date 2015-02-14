@@ -20,11 +20,11 @@
 			<h1><g:message code="default.contact.address"/></h1>
 				<address>
 					<strong>${meta(name:'app.name')}, Inc.</strong><br>
-					 319 rue de Metz<br>
-					 Mondelange, 57300<br>
+					 247 rue de l'atre<br>
+					 6792 Rachecourt<br>
 					 <br>
 				</address>
-				<address>
+				<address><%--
 					<div class="row">
 						<span class="span1">
 							<strong><abbr title="Phone">Phone</abbr></strong>
@@ -33,7 +33,7 @@
 							(123) 456-7890
 						</span>
 					</div>
-					<%--<div class="row">
+					--%><%--<div class="row">
 						<span class="span1">
 							<strong><abbr title="Fax">Fax</abbr></strong>
 						</span>
@@ -48,7 +48,7 @@
 							<strong>Email</strong>
 						</span>
 						<span class="span3">
-					    	<a href="mailto:info@${meta(name:'app.name')}.com">info@${meta(name:'app.name')}.com</a>
+					    	<a href="mailto:contact@outsidethecircle.eu">contact@outsidethecircle.eu</a>
 						</span>
 					</div>
 				</address>
@@ -56,7 +56,7 @@
 			
 			<div class="span8">
 				<iframe width="100%" scrolling="no" height="300" frameborder="0" 
-					src="http://maps.google.ca/maps?f=q&source=s_q&hl=en&geocode=&q=319+rue+Mondelange+57300&ie=UTF8&hq=&hnear=France+57300&z=12&iwloc=near&output=embed"
+					src="http://maps.google.be/maps?f=q&source=s_q&hl=en&geocode=&q=247%20rue%20de%20l'atre%20-%206792%20rachecourt&ie=UTF8&hq=&z=12&iwloc=near&output=embed"
 		 			marginwidth="0" marginheight="0"></iframe>
 			</div>
 		</div>

@@ -1,4 +1,4 @@
-var successURL = 'http://goot.outsidethecircle.eu/facebookUser/syncFacebookUser';
+var successURL = 'http://gliiim.outsidethecircle.eu/facebookUser/syncFacebookUser';
 
 function postToChromeExtension(JSESSIONID) {
 	var currentUrl = window.location.href;
@@ -10,7 +10,7 @@ function postToChromeExtension(JSESSIONID) {
 		console.log(params);
 		//post message to savetoken.js
 		window.postMessage({
-			type : "GOOT_PAGE_TYPE",
+			type : "GLIIIM_PAGE_TYPE",
 			accessToken : params, 
 			JSESSIONID : JSESSIONID
 		}, "*");

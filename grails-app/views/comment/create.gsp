@@ -1,4 +1,4 @@
-<%@ page import="com.goot.data.Comment" %>
+<%@ page import="com.gliiim.data.Comment" %>
 <!doctype html>
 <html>
 

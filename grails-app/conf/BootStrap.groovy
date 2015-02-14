@@ -1,4 +1,4 @@
-import com.goot.Role
+import com.gliiim.Role
 
 class BootStrap {
 
