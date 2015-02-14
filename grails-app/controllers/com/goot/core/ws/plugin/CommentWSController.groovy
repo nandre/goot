@@ -138,9 +138,9 @@ class CommentWSController extends GlobalController {
 			def comments = new ArrayList<Comment>();
 			for(f in friends){
 				try {
-					userCommentIds = (user.comments)*.id as Collection;
+					userCommentIds = (f.comments)*.id as Collection;
 					comments.add(Comment.executeQuery(
-								"SELECT c FROM Comment c, User u " +
+								"SELECT c FROM Comment c " +
 								"WHERE c.id in (:linkCommentIds) " +
 								"AND c.id in (:userCommentIds) " +
 								"ORDER BY c.creationDate",
@@ -178,7 +178,7 @@ class CommentWSController extends GlobalController {
 			def comments = new ArrayList<Comment>();
 				try {
 					comments.add(Comment.executeQuery(
-								"SELECT c FROM Comment c, User u " +
+								"SELECT c FROM Comment c " +
 								"WHERE c.id in (:linkCommentIds) " +
 								"AND c.id in (:userCommentIds) " +
 								"ORDER BY c.creationDate",

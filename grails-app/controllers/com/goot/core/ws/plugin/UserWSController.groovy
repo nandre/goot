@@ -36,9 +36,10 @@ class UserWSController extends GlobalController {
 			
 			if(user && friend){
 				user.addToFriends(friend);	
-			}
-			
-			user.save();
+				user.save();
+			} else {
+				throw new Exception('No Gliiim user with this email');
+			} 
 			
 			render getSuccess();
 		}catch(Exception e){
@@ -64,9 +65,11 @@ class UserWSController extends GlobalController {
 			
 			if(user && friend){
 				user.removeFromFriends(friend);
-			}
-			
-			user.save();
+				user.save();
+			} else {
+				throw new Exception('No Gliiim user with this email');
+			} 
+		
 			
 			render getSuccess();
 		} catch(Exception e){

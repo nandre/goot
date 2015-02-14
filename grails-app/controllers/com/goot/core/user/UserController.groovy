@@ -27,6 +27,15 @@ class UserController {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [userInstanceList: User.list(params), userInstanceTotal: User.count()]
     }
+	
+	def friends(){ 
+		
+		def user = springSecurityService.getCurrentUser() as User;
+		
+		def friends = user.friends
+
+		[userInstanceList: friends, userInstanceTotal: friends.size()]
+	}
 
     def create() {
         [userInstance: new User(params)]

@@ -25,8 +25,11 @@ class CommentController extends GlobalController {
     }
 
     def list() {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [commentInstanceList: Comment.list(params), commentInstanceTotal: Comment.count()]
+		def user = springSecurityService.getCurrentUser() as User;
+		
+		def comments = user.comments
+		
+        [commentInstanceList: comments, commentInstanceTotal: comments.size()]
     }
 	
 	//Not used for the moment
