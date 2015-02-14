@@ -73,11 +73,13 @@ class LinkWSController extends GlobalController {
 	
 			suggestion.save();
 			
-			return getSuccess();
+			render getSuccess();
+			return;
 		} catch(Exception e){
 			log.error "error", e
 			
-			return getError();
+			render getError();
+			return;
 		}						
 		
 	}
